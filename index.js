@@ -2,6 +2,7 @@ const express = require('express');
 const { json } = require('express');
 const config = require('./config/envConfig');
 const controller = require('./routes/routes');
+const cors = require('cors')
 
 const app = express();
 
