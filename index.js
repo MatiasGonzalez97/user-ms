@@ -2,6 +2,7 @@ const express = require('express');
 const { json } = require('express');
 const config = require('./config/envConfig');
 const controller = require('./routes/routes');
+const mongoose = require('mongoose');
 const cors = require('cors')
 
 const app = express();
@@ -19,6 +20,10 @@ app.use(cors({
     methods: ["GET", "POST", "PUT", "DELETE"],
     allowedHeaders: ["Content-Type", "Authorization"]
 }));
+
 app.use('/api',controller);
+
+mongoose.connect('mongodb+srv://mati97arg:matiaspch123@cluster0.6ruoi.mongodb.net/?retryWrites=true&w=majority&appName=CLuster0')
+.then(() => console.log('Connected!'));
 
 module.exports = {app, server};
